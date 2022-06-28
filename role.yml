@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  roles:
+        - geerlingguy.mysql
+        - weareinteractive.apache2
+        
+        
+        
+        
+           #    81  ansible-galaxy install weareinteractive.apache2
+    
+    #    47  ansible-galaxy install geerlingguy.mysql
+    #
+    #
