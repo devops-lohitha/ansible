@@ -1,0 +1,10 @@
+- name: Deploy Ansible User
+  hosts: all
+  become: yes
+  tasks:
+  - name: Add the user to client systems
+    ansible.builtin.user:
+      name: johnd
+      comment: John Doe
+      uid: 1040
+      group: admin
