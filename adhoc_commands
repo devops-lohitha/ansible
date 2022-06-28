@@ -1,0 +1,21 @@
+ansible -i inventory.txt  -a "free -m" all
+ansible -i inventory.txt  -a "df -hT -m" all
+ansible -i inventory.txt  -m command  -a "uptime" all
+ansible -i inventory.txt -m shell  -a "free -m" all
+ansible -i inventory.txt -m shell  -a "cat /etc/passwd" all
+ansible -i inventory.txt  -m apt  -a "name=nginx  state=present" --become  all
+ansible -i inventory.txt  -m apt  -a "name=nginx  state=absent" --become  all
+ansible -i inventory.txt  -m service -a "name=nginx  state=started" --become  all
+ansible -i inventory.txt  -m service -a "name=nginx  state=stopped" --become  all
+ansible -i inventory.txt  -m service -a "name=nginx  state=restarted" --become  all
+ansible -i inventory.txt -m file -a "path=/home/ubuntu/ansible state=directory" all
+ansible -i inventory.txt -m file -a "path=/home/ubuntu/sample.txt  state=touch" all
+ansible -i inventory.txt -m copy -a "src=/etc/hosts dest=/opt/hosts" all --become
+ansible -i inventory.txt -m group -a "name=unix state=present" all --become
+ansible -i inventory.txt -m group -a "name=unix state=absent" all --become
+ansible -i inventory.txt -m user -a "name=kajal state=present" all --become
+ansible -i inventory.txt -m user -a "name=kajal state=absent" all --become
+ansible -i inventory.txt   -m user -a "name=archana group=unix" all --become
+ansible -i inventory.txt -m shell -a "touch /home/ubuntu/file1.txt" all  --become
+ansible -i inventory.txt   -m user -a "name=archana password=unix@123" all --become
+ansible -i inventory.txt -m shell -a "systemctl status sshd" all  --become
