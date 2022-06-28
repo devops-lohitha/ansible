@@ -1,0 +1,8 @@
+- name: copy playbook
+  hosts: all
+  become: yes
+  tasks:
+   - name: Copy file with owner and permissions
+     ansible.builtin.shell:
+      cmd: touch siva
+      chdir: /opt/
